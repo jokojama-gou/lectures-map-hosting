@@ -16,7 +16,7 @@ const TimeTable = () => {
 
   // JSON読み込み
   useEffect(() => {
-    fetch('/periods.json')
+    fetch(`${import.meta.env.BASE_URL}periods.json`)
       .then(res => res.json())
       .then(data => setPeriods(data))
       .catch(err => console.error('Failed to load periods:', err));
