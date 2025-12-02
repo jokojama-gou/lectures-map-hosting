@@ -79,7 +79,7 @@ const TimeTable = () => {
     };
 
     checkTime();
-    const timer = setInterval(checkTime, 60000); // 1分ごとに更新
+    const timer = setInterval(checkTime, 60000); // 1分ごと
     return () => clearInterval(timer);
   }, [periods]);
 
