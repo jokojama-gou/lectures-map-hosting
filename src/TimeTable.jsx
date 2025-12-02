@@ -3,18 +3,48 @@ import './TimeTable.css';
 
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 
-// 各コマのリンク先データ（仮）。実際はこれもAPIやJSONから来るはずです
 const LINKS = {
-  'Mon-1': 'https://google.com',
-  'Mon-2': 'https://keio.jp',
-  // ... 他のコマ
+  'Mon-1': `${import.meta.env.BASE_URL}maps_imgs/月1.png`,
+  'Mon-2': `${import.meta.env.BASE_URL}maps_imgs/月2.png`,
+  'Mon-3': `${import.meta.env.BASE_URL}maps_imgs/月3.png`,
+  'Mon-4': `${import.meta.env.BASE_URL}maps_imgs/月4.png`,
+  'Mon-5': `${import.meta.env.BASE_URL}maps_imgs/月5.png`,
+  'Mon-6': `${import.meta.env.BASE_URL}maps_imgs/月6.png`,
+  'Mon-7': `${import.meta.env.BASE_URL}maps_imgs/月7.png`,
+  'Tue-1': `${import.meta.env.BASE_URL}maps_imgs/火1.png`,
+  'Tue-2': `${import.meta.env.BASE_URL}maps_imgs/火2.png`,
+  'Tue-3': `${import.meta.env.BASE_URL}maps_imgs/火3.png`,
+  'Tue-4': `${import.meta.env.BASE_URL}maps_imgs/火4.png`,
+  'Tue-5': `${import.meta.env.BASE_URL}maps_imgs/火5.png`,
+  'Tue-6': `${import.meta.env.BASE_URL}maps_imgs/火6.png`,
+  'Tue-7': `${import.meta.env.BASE_URL}maps_imgs/火7.png`,
+  'Wed-1': `${import.meta.env.BASE_URL}maps_imgs/水1.png`,
+  'Wed-2': `${import.meta.env.BASE_URL}maps_imgs/水2.png`,
+  'Wed-3': `${import.meta.env.BASE_URL}maps_imgs/水3.png`,
+  'Wed-4': `${import.meta.env.BASE_URL}maps_imgs/水4.png`,
+  'Wed-5': `${import.meta.env.BASE_URL}maps_imgs/水5.png`,
+  'Wed-6': `${import.meta.env.BASE_URL}maps_imgs/水6.png`,
+  'Wed-7': `${import.meta.env.BASE_URL}maps_imgs/水7.png`,
+  'Thu-1': `${import.meta.env.BASE_URL}maps_imgs/木1.png`,
+  'Thu-2': `${import.meta.env.BASE_URL}maps_imgs/木2.png`,
+  'Thu-3': `${import.meta.env.BASE_URL}maps_imgs/木3.png`,
+  'Thu-4': `${import.meta.env.BASE_URL}maps_imgs/木4.png`,
+  'Thu-5': `${import.meta.env.BASE_URL}maps_imgs/木5.png`,
+  'Thu-6': `${import.meta.env.BASE_URL}maps_imgs/木6.png`,
+  'Thu-7': `${import.meta.env.BASE_URL}maps_imgs/木7.png`,
+  'Fri-1': `${import.meta.env.BASE_URL}maps_imgs/金1.png`,
+  'Fri-2': `${import.meta.env.BASE_URL}maps_imgs/金2.png`,
+  'Fri-3': `${import.meta.env.BASE_URL}maps_imgs/金3.png`,
+  'Fri-4': `${import.meta.env.BASE_URL}maps_imgs/金4.png`,
+  'Fri-5': `${import.meta.env.BASE_URL}maps_imgs/金5.png`,
+  'Fri-6': `${import.meta.env.BASE_URL}maps_imgs/金6.png`,
+  'Fri-7': `${import.meta.env.BASE_URL}maps_imgs/金7.png`,
 };
 
 const TimeTable = () => {
   const [periods, setPeriods] = useState([]);
   const [currentSlot, setCurrentSlot] = useState({ dayIndex: -1, periodId: -1 });
 
-  // JSON読み込み
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}periods.json`)
       .then(res => res.json())
@@ -31,7 +61,7 @@ const TimeTable = () => {
 
       let activePeriodId = -1;
 
-      // 日曜日は除外、または範囲外なら何もしない
+
       if (currentDayIndex >= 0 && currentDayIndex < 6) {
         periods.forEach(p => {
           const [sH, sM] = p.start.split(':').map(Number);
