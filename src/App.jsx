@@ -6,7 +6,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>時間割</h1>
+        <h1>授業マップ🗺️ （β版）by 横山豪</h1>
+        <p>見たい授業マップ🗺️のコマをタップしてね！</p>
       </header>
       <main>
         <TimeTable />
